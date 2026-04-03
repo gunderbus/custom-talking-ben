@@ -26,7 +26,7 @@ while running:
     # RENDER YOUR GAME HERE
 
     # flip() the display to put your work on screen
-    cole.drawThisRect(0, 0, 10, screen)
+    cole.drawThisRect(0, 0, screen)
     pygame.display.flip()
 
     clock.tick(60)  # limits FPS to 60

@@ -15,10 +15,11 @@ class drawRectObj:
         self.height = height
         self.color = color
 
-    def drawThisRect(self, xdil: float, ydil: float, width1, screen):
+    def drawThisRect(self, xdil: float, ydil: float, screen, width1=0):
         pygame.draw.rect(
             screen,
             self.color,
-            (self.x + xdil, self.y + ydil, self.width, self.height, width1),
+            (self.x + xdil, self.y + ydil, self.width, self.height),
+            width1,
         )
         
