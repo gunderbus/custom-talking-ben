@@ -11,7 +11,11 @@ class ben:
         imgHahaPath: str,
         imgBlehPath: str,
         stateSet: int,
+        x,
+        y
     ):
+        self.x = x
+        self.y = y
 
         self.defImg = pygame.image.load(defaultImgPath).convert_alpha()
         self.imgNo = pygame.image.load(imgNoPath).convert_alpha()
@@ -19,8 +23,7 @@ class ben:
         self.imgHaha = pygame.image.load(imgHahaPath).convert_alpha()
         self.imgBleh = pygame.image.load(imgBlehPath).convert_alpha()
 
-        self.rect = self.defImg.get_rect()
-        self.rect.topleft = (x,y)
+        self.image = self.degImg
 
         self.stateSet = -1
 
@@ -29,18 +32,23 @@ class ben:
     ):
         self.stateSet = state
 
-    def draw():
+    def draw(self, screen):
 
         # damn bruh this shit is genuene ass
-        if(stateSet == -1):
-            self.rect = self.defImg.get_rect()
-        elif stateSet == 0:
-            self.rect = self.imgHaha.get_rect()
-        elif stateSet == 1:
-            self.rect = self.imgBleh.get_rect()
-        elif stateSet == 2:
-            self.rect = self.imgYes.get_rect()
-        elif stateSet == 3:
-            self.rect == self.imgNo.get_rect()
+        if(self.stateSet == -1):
+            self.image = self.defImg
+        elif self.stateSet == 0:
+            self.image = self.imgHaha
+        elif self.stateSet == 1:
+            self.image = self.imgBleh
+        elif self.stateSet == 2:
+            self.image = self.imgYes
+        elif self.stateSet == 3:
+            self.image == self.imgNo
         else:
-            self.rect = self.defImg.get_rect()
+            self.image = self.defImg
+
+        try:
+            screen.blit(self.rect, (self.x, self.y))
+        except:
+            raise ValueError("ts is not working bruh")
