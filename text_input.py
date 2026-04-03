@@ -46,3 +46,10 @@ class textInput:
     def draw(self, screen):
         mouse_pos = pygame.mouse.get_pos()
         mouse_click = pygame.mouse.get_pressed()
+
+        if self.rect.collidepoint(mouse_pos):
+            if mouse_click[0]:  # 0 is left click
+                if self.isClicked == False:
+                    self.isClicked = True
+                else:
+                    self.isClicked = False
