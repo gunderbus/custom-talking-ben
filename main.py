@@ -1,4 +1,4 @@
-import dspy
+# import dspy
 import pygame
 
 # pygame setup

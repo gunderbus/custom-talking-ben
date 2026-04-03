@@ -13,6 +13,12 @@ class Button:
         self.rect = self.current_img.get_rect()
         self.rect.topleft = (x, y)
 
+    def setRectPos(self, x, y):
+        try:
+            self.rect.topleft = (x, y)
+        except:
+            raise ValueError("not the right values or smth idek")
+
     def draw(self, screen):
         # Logic to check for hover/click
         mouse_pos = pygame.mouse.get_pos()
