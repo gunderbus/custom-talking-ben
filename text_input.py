@@ -5,16 +5,17 @@ class textInput:
     width: int
     height: int
     font: str
-    bckcolor: str
-    textcolor: str
+    bckcolor: pygame.Color
+    textcolor: pygame.Color
+    isClicked: bool = False
 
     def __init__(
         self,
         iwidth: int,
         iheight: int,
         ifont: str,
-        ibckcolor: str,
-        itextcolor: str,
+        ibckcolor: pygame.Color,
+        itextcolor: pygame.Color,
         screen,
         x,
         y,
@@ -24,8 +25,24 @@ class textInput:
         self.font = ifont
         self.bckcolor = ibckcolor
         self.textcolor = itextcolor
+        self.isClicked = False
+
+        # self.drawrect = {
+        #     "topleft": (x, y),
+        #     "color": self.bckcolor,
+        #     "textcolor": self.textcolor,
+        #     "width": self.width,
+        #     "height": self.height,
+        # }
 
         self.rect = pygame.Rect()
-        self.rect.topleft = (x, y)
         self.rect.width = self.width
         self.rect.height = self.height
+        self.rect.topleft = (x, y)
+
+    def getIsClicked(self):
+        return self.isClicked
+
+    def draw(self, screen):
+        mouse_pos = pygame.mouse.get_pos()
+        mouse_click = pygame.mouse.get_pressed()
