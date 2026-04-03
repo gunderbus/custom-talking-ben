@@ -30,11 +30,18 @@ class Button:
         # Draw the current state to the screen
         screen.blit(self.current_img, (self.rect.x, self.rect.y))
 
-    def getIsHover(self, screen):
+    def getIsHover(self):
         mouse_pos = pygame.mouse.get_pos()
-        mouse_click = pygame.mouse.get_pressed()
 
         if self.rect.collidepoint(mouse_pos):
             return True
             # if mouse_click[0]: # 0 is left click
             #     self.current_img = self.click_img
+
+    def getIsClick(self):
+        mouse_pos = pygame.mouse.get_pos()
+        mouse_click = pygame.mouse.get_pressed()
+
+        if self.rect.collidepoint(mouse_pos):
+            if mouse_click[0]:
+                return True
