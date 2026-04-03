@@ -16,6 +16,8 @@ class textInput:
         ibckcolor: str,
         itextcolor: str,
         screen,
+        x,
+        y,
     ):
         self.width = iwidth
         self.height = iheight
@@ -23,4 +25,7 @@ class textInput:
         self.bckcolor = ibckcolor
         self.textcolor = itextcolor
 
-        # self.rect = pygame.draw.rect(screen, self.bckcolor, pygame.Rect(0, 0, 0, ))
+        self.rect = pygame.Rect()
+        self.rect.topleft = (x, y)
+        self.rect.width = self.width
+        self.rect.height = self.height
